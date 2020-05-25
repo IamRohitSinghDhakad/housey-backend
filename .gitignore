@@ -1,0 +1,45 @@
+.DS_Store
+
+application/cache/*
+!application/cache/index.html
+
+application/logs/*
+!application/logs/index.html
+
+!application/*/.htaccess
+
+# Ignore htaccess as we will have different environment for local, dev and prod
+# This file needs to be added manually in project
+.htaccess
+
+# Ignore everything in composer's vendor directory                
+application/vendor/*
+
+# Ignore everything in uploads directory      
+uploads/*
+
+# Ignore placeholder images in uploads directory
+!uploads/placeholders/ws_general_placeholder.png
+
+user_guide_src/build/*
+user_guide_src/cilexer/build/*
+user_guide_src/cilexer/dist/*
+user_guide_src/cilexer/pycilexer.egg-info/*
+/vendor/
+
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+/tests/tests/
+/tests/results/
+
+#Ignore env file
+.env

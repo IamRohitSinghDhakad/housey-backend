@@ -1,0 +1,3719 @@
+{
+	"info": {
+		"_postman_id": "1b6d173e-2d48-44bb-b04d-dd8638f9a57b",
+		"name": "Qvazon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUKGM",
+								"description": "Required",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"description": "1=IOS,2=Android,3=Website      Required",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"description": "Required",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "full_name",
+									"value": "Jyoti Singh",
+									"description": "(Required) ,  minLength:2 Maxlength:50",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jyotisingh07@gmail.com",
+									"description": "(Required)",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "(Required)",
+									"type": "text"
+								},
+								{
+									"key": "user_type",
+									"value": "seller",
+									"description": "Type = buyer, seller     (Required)",
+									"type": "text"
+								},
+								{
+									"key": "signup_from",
+									"value": "3",
+									"description": "1:IOS,2:Android,3:Website  (Required)",
+									"type": "text"
+								},
+								{
+									"key": "device_token",
+									"value": "GFTRE",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "profile_timezone",
+									"value": "Asia/Kolkata",
+									"description": "User timezone Example: Asia/Kolkata, Asia/Colombo  (Required)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/auth/signup",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text",
+								"description": "Required"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text",
+								"description": "Required"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text",
+								"description": "Required"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "jyotimindiii@gmail.com",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "device_token",
+									"value": "GFDERTYUIPMNBVDFDFKKJ",
+									"description": "Required",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/auth/login",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Social Signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-IDHMMKJ",
+								"type": "text",
+								"description": "Required"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text",
+								"description": "1=IOS,2=Android,3=Website      Required"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text",
+								"description": "Required"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "full_name",
+									"value": "Jyoti Singh",
+									"description": "Required, minLength:2 Maxlength:50",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jyoti.mindiii79@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "user_type",
+									"value": "buyer",
+									"description": "Type = buyer, seller     (Required)",
+									"type": "text"
+								},
+								{
+									"key": "social_id",
+									"value": "zde5r656879786",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "social_type",
+									"value": "1",
+									"description": " 1:Google, 2:Facebook, 3:Twitter, 4:GitHub     Required ",
+									"type": "text"
+								},
+								{
+									"key": "profile_image",
+									"value": "https://images-na.ssl-images-amazon.com/images/I/416k3JMzAzL.jpg",
+									"type": "text"
+								},
+								{
+									"key": "profile_timezone",
+									"value": "Asia/Kolkata",
+									"description": "User timezone Example: Asia/Kolkata, Asia/Colombo  (Required)",
+									"type": "text"
+								},
+								{
+									"key": "signup_from",
+									"value": "3",
+									"description": "1:IOS,2:Android,3:Website  (Required)",
+									"type": "text"
+								},
+								{
+									"key": "device_token",
+									"value": "dfyghtguuoiokkKK",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/auth/social-signup",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"social-signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Device-Id",
+								"type": "text",
+								"value": "tuytyugch"
+							},
+							{
+								"key": "Device-Type",
+								"type": "text",
+								"value": "3"
+							},
+							{
+								"key": "Device-Timezone",
+								"type": "text",
+								"value": "Asia/Kolkata"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "jyoti.mindiii@gmail.com",
+									"description": "Required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/auth/reset-password",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODE0MDAyNTgsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODE0MDAyNTgsImV4cCI6MTU4MTQwMzg1OCwiZGF0YSI6eyJ1c2VyX2lkIjoiMzAiLCJ1c2VyX3R5cGUiOiJzZWxsZXIiLCJkZXZpY2VfaWQiOiJERVZJQ0UtSVRGRENCUiJ9fQ.wr0DbP2WowSwTYCk9m5EmfakTuyeXIfYnlHkQ5YzAnE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "tuytyugch",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/auth/logout",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODE1Nzg4NzksImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODE1Nzg4NzksImV4cCI6MTU4MTU4MjQ3OSwiZGF0YSI6eyJ1c2VyX2lkIjoiMyIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JREhNIn19.0yj_RyX31Udx1ssKh_qIJZCW4DEMEQCpKFEAbVcphNA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-IDHM",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "new_password",
+									"value": "123456",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "123456",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "old_password",
+									"value": "",
+									"description": "If user password already set then required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/change-password",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Social Signup",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-IDHMJKOKIYGFNHHHHH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "jyoti@gmail.com",
+									"description": "Required",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "social_id",
+									"value": "zde5r6568679789",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "social_type",
+									"value": "2",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "user_type",
+									"value": "buyer",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "device_token",
+									"value": "dfyghtgujyiuiuoio",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "profile_image",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "full_name",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/auth/check-social-signup",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"check-social-signup"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Seller",
+			"item": [
+				{
+					"name": "Seller Business Info Add OR Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODMxMzIxNjQsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODMxMzIxNjQsImV4cCI6MTU4MzIxODU2NCwiZGF0YSI6eyJ1c2VyX2lkIjoiNiIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JSSkhVS0cifX0.V4EdXtxg8_-xC5UO_W6GhztiAmBJyxf9y5Ir8MJHOlM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUKG",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "business_name",
+									"value": "Textiles",
+									"description": "Required, MinValue:5  MaxValue: 100",
+									"type": "text"
+								},
+								{
+									"key": "license",
+									"value": "CDGBHD",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Mindiii Systems PVT. LTD.",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "77.00",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "76.01",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/seller/biz-info",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"seller",
+								"biz-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODMzMjAxMDAsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4MzMyMDEwMCwiZXhwIjoxNTgzNDA2NTAwLCJkYXRhIjp7InVzZXJfaWQiOiIyNiIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0IifX0.B_JBeBCBl2yHTNMSAKVcstY39NsNw6CqKT10ypwVv-0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUKG",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": " Kutas",
+									"description": "Required, Minvalue:2, MaxValue:300",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Printed panelled  kurta, has a round neck, three-quarter sleeves and flared hem",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "additional_info",
+									"value": "Top fabric: 100% pure cotton\nBottom fabric: 100% pure cotton\nHand-wash",
+									"type": "text"
+								},
+								{
+									"key": "sku",
+									"value": "ITYYETNJK20",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "featured_image",
+									"description": "Required,  min width size: 768px, min height size: 960px\nmax width size: 1080px, max height size: 1350px",
+									"type": "file",
+									"src": "/home/php/Documents/Qvazon/2dd87d20d19f2cd32d3952c1b16a7d34.jpg"
+								},
+								{
+									"key": "category",
+									"value": "2",
+									"description": "Required,  Main Category",
+									"type": "text"
+								},
+								{
+									"key": "sub_category",
+									"value": "7,8,11,14",
+									"description": "Required, Comma seperated value , Ascending order",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "9",
+									"description": "Required ,  Comma seperated value, Ascending order",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "1",
+									"description": "Required ,Comma seperated value , Ascending order",
+									"type": "text"
+								},
+								{
+									"key": "shipping_applied",
+									"value": "1",
+									"description": "Required, 0:No, 1:Yes",
+									"type": "text"
+								},
+								{
+									"key": "shipping_charge",
+									"value": "50",
+									"description": " If shipping applied = 1 ,  2 decimal points value",
+									"type": "text"
+								},
+								{
+									"key": "regular_price",
+									"value": "35686789.78",
+									"description": "Required,  2 decimal points value",
+									"type": "text"
+								},
+								{
+									"key": "sale_price",
+									"value": "14654756",
+									"description": " 2 decimal points value",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "60",
+									"description": "discount in % ,  example: 10%",
+									"type": "text"
+								},
+								{
+									"key": "in_stock",
+									"value": "1",
+									"description": "0:No, 1:Yes",
+									"type": "text"
+								},
+								{
+									"key": "is_featured",
+									"value": "1",
+									"description": "0:No, 1:Yes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/product",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "tuytyugch",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/category",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seller Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI5NjY2NzMsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODI5NjY2NzMsImV4cCI6MTU4MzA1MzA3MywiZGF0YSI6eyJ1c2VyX2lkIjoiMyIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JSSkgifX0.KQFQm5JbjTS2LwhjlQ1Ksgwuv1D591t5BzytxtL948g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/seller/my-profile",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"seller",
+								"my-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Seller Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODEzMTQwNTcsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODEzMTQwNTcsImV4cCI6MTU4MTMxNzY1NywiZGF0YSI6eyJ1c2VyX2lkIjoiMzAiLCJ1c2VyX3R5cGUiOiJzZWxsZXIiLCJkZXZpY2VfaWQiOiJERVZJQ0UtSVRGRENCUkYifX0.aIM38bM1p8J1w8_KGlJMAPjvS738xX9OZNGv2VRruho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRF",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "full_name",
+									"value": "Jyoti",
+									"description": "Reuired , minlength:2, maxlength:50",
+									"type": "text"
+								},
+								{
+									"key": "business_name",
+									"value": " Software Service ",
+									"description": "Reuired , minlength:5, maxlength:100",
+									"type": "text"
+								},
+								{
+									"key": "license",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "",
+									"description": "If address is not empty then required",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "",
+									"description": "If address is not empty then required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/seller/profile",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"seller",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Seller Profile Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODEzNDM1MjksImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJhcGkubGFzcm9zcy5jb20iLCJuYmYiOjE1ODEzNDM1MjksImV4cCI6MTU4MTM0NzEyOSwiZGF0YSI6eyJ1c2VyX2lkIjoiMSIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JSIn19.TipV8C9YdrK0WIxaUx0Lkjv2by0rVnoQIikaCHQ8V5U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBR",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profile_picture",
+									"type": "file",
+									"src": "/home/php/Documents/Lassross/product image/5646a9ba-3302-4d8f-8238-cf1053fce4a11579584026033-House-of-Pataudi-Women-Kurtas-8491579584024167-1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/seller/update-avatar",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"seller",
+								"update-avatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Gallery Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI1MjUyNjMsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODI1MjUyNjMsImV4cCI6MTU4MjYxMTY2MywiZGF0YSI6eyJ1c2VyX2lkIjoiMyIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JSSkgifX0.gfsJzCJ6H1bZ3R5oGa_ohpFuSTPELhFVp1dCKb_uY_w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gallery_image",
+									"description": "min width size: 768px, min height size: 960px\nmax width size: 1080px, max height size: 1350px",
+									"type": "file",
+									"src": "/home/php/Documents/Qvazon/2dd87d20d19f2cd32d3952c1b16a7d34.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/product/:ID/attachments",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"product",
+								":ID",
+								"attachments"
+							],
+							"variable": [
+								{
+									"key": "ID",
+									"value": "15",
+									"description": "Product ID , required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Gallery Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODEwODMyOTUsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODEwODMyOTUsImV4cCI6MTU4MTA4Njg5NSwiZGF0YSI6eyJ1c2VyX2lkIjoiMzAiLCJ1c2VyX3R5cGUiOiJzZWxsZXIiLCJkZXZpY2VfaWQiOiJERVZJQ0UtSVRGRENCUkYifX0.nRJxZnUP3wNd_GcqqaEe-fz-7REuBpqzA4-DTcISmjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRF",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/product/attachments/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"product",
+								"attachments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "Required, gallery image ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODE1OTY1MTYsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODE1OTY1MTYsImV4cCI6MTU4MTYwMDExNiwiZGF0YSI6eyJ1c2VyX2lkIjoiMyIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JSSkhKSiJ9fQ.2VlOx6LrJ5BcXYvlo1BjyeJ-TpFvfH35pCuA71v2aoM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-IDHM",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/product/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "12",
+									"description": "Product ID  Required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODE1OTY1MTYsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODE1OTY1MTYsImV4cCI6MTU4MTYwMDExNiwiZGF0YSI6eyJ1c2VyX2lkIjoiMyIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JSSkhKSiJ9fQ.2VlOx6LrJ5BcXYvlo1BjyeJ-TpFvfH35pCuA71v2aoM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHJJ",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "22",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Women Pink & White Khari Print Anarkali Kurta",
+									"description": "Required, Minvalue:2, MaxValue:300",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Pink, white and silver printed panelled anarkali kurta, has a round neck, three-quarter sleeves and flared hem",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "additional_info",
+									"value": "Top fabric: 100% pure cotton\nBottom fabric: 100% pure cotton\nHand-wash",
+									"type": "text"
+								},
+								{
+									"key": "sku",
+									"value": "ITYYETNJK20",
+									"description": "Required  ",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "2",
+									"description": "Required  Main category",
+									"type": "text"
+								},
+								{
+									"key": "sub_category",
+									"value": "11",
+									"description": "Required, Comma seperated value , Ascending order  ",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "13,17",
+									"description": "Required ,  Comma seperated value, Ascending order",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "1,2,3",
+									"description": "Required ,Comma seperated value , Ascending order",
+									"type": "text"
+								},
+								{
+									"key": "shipping_applied",
+									"value": "0",
+									"description": "Required, 0:No, 1:Yes",
+									"type": "text"
+								},
+								{
+									"key": "shipping_charge",
+									"value": "",
+									"description": " If shipping applied = 1 ,  2 decimal points value",
+									"type": "text"
+								},
+								{
+									"key": "regular_price",
+									"value": "1300.67",
+									"description": "Required,  2 decimal points value",
+									"type": "text"
+								},
+								{
+									"key": "sale_price",
+									"value": "1000",
+									"description": " 2 decimal points value",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "3",
+									"description": "discount in % ,  example: 10%",
+									"type": "text"
+								},
+								{
+									"key": "in_stock",
+									"value": "1",
+									"description": "0:No, 1:Yes",
+									"type": "text"
+								},
+								{
+									"key": "is_featured",
+									"value": "1",
+									"description": "0:No, 1:Yes",
+									"type": "text"
+								},
+								{
+									"key": "featured_image",
+									"description": "Required,  min width size: 768px, min height size: 960px\nmax width size: 1080px, max height size: 1350px",
+									"type": "file",
+									"src": "/home/php/Documents/Qvazon/2dd87d20d19f2cd32d3952c1b16a7d34.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/product/update",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"product",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Product List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODIzNTQ3NjksImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4MjM1NDc2OSwiZXhwIjoxNTgyNDQxMTY5LCJkYXRhIjp7InVzZXJfaWQiOiIzNCIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JSSkgifX0.zdaouaGlkRBriTefPZN8OLzps_tj776lC4de0J-lRDY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHJJ",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/product/my-product?limit=30&offset&searchTerm=women",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"product",
+								"my-product"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "30",
+									"description": "Dafault 18"
+								},
+								{
+									"key": "offset",
+									"value": null,
+									"description": "Default 0"
+								},
+								{
+									"key": "searchTerm",
+									"value": "women",
+									"description": "search keyword"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Variant List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "tuytyugch",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/variant",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"variant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seller Info For Detail Page",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/seller/seller-info?seller_id=48",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"seller",
+								"seller-info"
+							],
+							"query": [
+								{
+									"key": "seller_id",
+									"value": "48"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " New Order List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODQ2MDg4ODAsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4NDYwODg4MCwiZXhwIjoxNTg0Njk1MjgwLCJkYXRhIjp7InVzZXJfaWQiOiIyMSIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JSSkhVSyJ9fQ.Tez2TmYXkzTlat89Zr0Jz3Jh1AEfDK3KlavEloR2IAQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/seller/new-order?limit=&offset=&searchTerm=",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"seller",
+								"new-order"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "",
+									"description": "Default 20"
+								},
+								{
+									"key": "offset",
+									"value": "",
+									"description": "Default 0"
+								},
+								{
+									"key": "searchTerm",
+									"value": "",
+									"description": "Search by order ID and prroduct name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Reject Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODQzNDkxNTYsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4NDM0OTE1NiwiZXhwIjoxNTg0NDM1NTU2LCJkYXRhIjp7InVzZXJfaWQiOiIxNyIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JSSkhVSyJ9fQ.1nCn3soclZLN-I6nSUkAK1Rp78XRSC74jq1EePy4ilc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "0",
+									"description": "Required ,   0: reject, 1: Accept",
+									"type": "text"
+								}
+							],
+							"options": {
+								"urlencoded": {}
+							}
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/order/accept-reject/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"order",
+								"accept-reject",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "31cd6076-2b52-4a96-ad8b-ff687159f8b3",
+									"key": "id",
+									"value": "557",
+									"type": "string",
+									"description": "Required , OrderID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODQ2OTM5MzQsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4NDY5MzkzNCwiZXhwIjoxNTg0NzgwMzM0LCJkYXRhIjp7InVzZXJfaWQiOiIxMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiOEU2RjhBMDktOTI5Qi00NDFGLUFFNDMtQjM4QUQ1RTgwNzU0In19._2lwjmdpai-fzLbND_JtFOg90mEGwMt_qGos-ggDMnw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"description": "0:Order Placed 1:Approved, 2:Packed, 3:Shipped, 4:Delivered, 5:Cancelled, 6:Refunded",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/order/order-detail/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"order",
+								"order-detail",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "628",
+									"type": "string",
+									"description": "Required,  OrderID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Reject Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODQzNDkxNTYsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4NDM0OTE1NiwiZXhwIjoxNTg0NDM1NTU2LCJkYXRhIjp7InVzZXJfaWQiOiIxNyIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JSSkhVSyJ9fQ.1nCn3soclZLN-I6nSUkAK1Rp78XRSC74jq1EePy4ilc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "",
+									"description": "Required ,   0: reject, 1: Accept",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/order/accept-reject/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"order",
+								"accept-reject",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "557",
+									"description": "Required , OrderID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Order List ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODQ2OTM5MzQsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4NDY5MzkzNCwiZXhwIjoxNTg0NzgwMzM0LCJkYXRhIjp7InVzZXJfaWQiOiIxMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiOEU2RjhBMDktOTI5Qi00NDFGLUFFNDMtQjM4QUQ1RTgwNzU0In19._2lwjmdpai-fzLbND_JtFOg90mEGwMt_qGos-ggDMnw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/seller/my-order?limit=&offset=&searchTerm=we",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"seller",
+								"my-order"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "",
+									"description": "Default 20"
+								},
+								{
+									"key": "offset",
+									"value": "",
+									"description": "Default 0"
+								},
+								{
+									"key": "searchTerm",
+									"value": "we",
+									"description": "Search by order ID and prroduct name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Order Tracking Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODQ0MzAwOTEsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4NDQzMDA5MSwiZXhwIjoxNTg0NTE2NDkxLCJkYXRhIjp7InVzZXJfaWQiOiIxNyIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JSSkhVSyJ9fQ.tp_6Jrdw7CggasrTWPx5ajMCnpv48XhGPc7RrbOQVUU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "2",
+									"description": "Required, 0:Order Placed 1:Approved, 2:Packed, 3:Shipped, 4:Delivered, 5:Cancelled, 6:Refunded",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/seller/change-status/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"seller",
+								"change-status",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "575",
+									"description": "OrderID,  Required"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODQ3NzQ3OTgsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4NDc3NDc5OCwiZXhwIjoxNTg0ODYxMTk4LCJkYXRhIjp7InVzZXJfaWQiOiIzNSIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSFVLIn19.8AmaawuAzebLy4f1QxF1hBEVsREcub0C65f0YKqZQLM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text",
+								"description": "Required"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text",
+								"description": "Required"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text",
+								"description": "Required"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/my-profile",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"my-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODQ3NzQ3OTgsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4NDc3NDc5OCwiZXhwIjoxNTg0ODYxMTk4LCJkYXRhIjp7InVzZXJfaWQiOiIzNSIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSFVLIn19.8AmaawuAzebLy4f1QxF1hBEVsREcub0C65f0YKqZQLM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text",
+								"description": "Required"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text",
+								"description": "Required"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text",
+								"description": "Required"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "full_name",
+									"value": "Jitendra",
+									"description": "Required  Minlength:2, Maxlength:50",
+									"type": "text"
+								},
+								{
+									"key": "profile_address",
+									"value": "105-1109,Scheme 140 ,Indore,05643,+9170346576,India",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "profile_country_code",
+									"value": "CU",
+									"description": "Required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/profile",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User profile Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODMzMTMyMzUsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODMzMTMyMzUsImV4cCI6MTU4MzM5OTYzNSwiZGF0YSI6eyJ1c2VyX2lkIjoiMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSCJ9fQ.PEpMR7HAkg2Me-VRq8_bCsTNBWqcXW7Rw92tmp07QSE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text",
+								"description": "Required"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text",
+								"description": "Required"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text",
+								"description": "Required"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profile_picture",
+									"type": "file",
+									"src": "/home/php/Documents/Qvazon/Grey Melange Flock Print T-shirt with Elbow Patch 1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/update-avatar",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"update-avatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Leave Feedback",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODE1MTE4MzcsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODE1MTE4MzcsImV4cCI6MTU4MTUxNTQzNywiZGF0YSI6eyJ1c2VyX2lkIjoiMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSEpKIn19.LyB-RPafYfsf5pAXsBipXemUC8VNBKS_s2U3pXtC8BM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHJJ",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "feedback",
+									"value": "Lorum ipsum",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/feedback",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"feedback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product List And Detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"type": "text",
+								"value": "DEVICE-ITFDCBRJH"
+							},
+							{
+								"key": "Device-Type",
+								"type": "text",
+								"value": "3"
+							},
+							{
+								"key": "Device-Timezone",
+								"type": "text",
+								"value": "Asia/Kolkata"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/product/:id?limit=&searchTerm=&size=&color=7&price=&sort=&userID=0&userType=&offset&category",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"product",
+								":id"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": ""
+								},
+								{
+									"key": "searchTerm",
+									"value": ""
+								},
+								{
+									"key": "size",
+									"value": ""
+								},
+								{
+									"key": "color",
+									"value": "7"
+								},
+								{
+									"key": "price",
+									"value": ""
+								},
+								{
+									"key": "sort",
+									"value": ""
+								},
+								{
+									"key": "userID",
+									"value": "0"
+								},
+								{
+									"key": "userType",
+									"value": ""
+								},
+								{
+									"key": "",
+									"value": "",
+									"description": "thumb/, medium/, card/ concat with image url for different image size",
+									"disabled": true
+								},
+								{
+									"key": "deal",
+									"value": "10",
+									"description": "Deal Item ID when filter deal products",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": null
+								},
+								{
+									"key": "category",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "22",
+									"description": "Product ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODQ3NzQ3OTgsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4NDc3NDc5OCwiZXhwIjoxNTg0ODYxMTk4LCJkYXRhIjp7InVzZXJfaWQiOiIzNSIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSFVLIn19.8AmaawuAzebLy4f1QxF1hBEVsREcub0C65f0YKqZQLM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Jyoti Singh",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "70346576",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "house_number",
+									"value": "105-108",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "street",
+									"value": "Scheme 140 ",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Indore",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "pincode",
+									"value": "05643",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "dial_code",
+									"value": "+91",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "India",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "country_code",
+									"value": "IN",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/address",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Address List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODMzODgyMDYsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4MzM4ODIwNiwiZXhwIjoxNTgzNDc0NjA2LCJkYXRhIjp7InVzZXJfaWQiOiI4IiwidXNlcl90eXBlIjoiYnV5ZXIiLCJkZXZpY2VfaWQiOiJiODMyNDljZi1lYmU0LTIxNjEtN2VkNy0yNWJlY2FiYTZiNWQifX0.00c0DHbBL6mGfXZ96VeK1H8KwODWdMV-_ClozEIcxoY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/address",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODE2ODcwNDAsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODE2ODcwNDAsImV4cCI6MTU4MTc3MzQ0MCwiZGF0YSI6eyJ1c2VyX2lkIjoiMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSCJ9fQ.pwXmlgmc1k8aWs-501WwLxZ03kbR4FTcvrUtlaRowE0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/address/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"address",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3",
+									"description": "AddressID   Required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Push Alert Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODE5MzMyNDEsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODE5MzMyNDEsImV4cCI6MTU4MjAxOTY0MSwiZGF0YSI6eyJ1c2VyX2lkIjoiMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSCJ9fQ.UmZaqC_PkaBxPpv0MItbzx7txTgzBTi7tOTdwpWz_po",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "1",
+									"description": "Required,  0:No, 1:Yes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/notification/push_alert_status",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"notification",
+								"push_alert_status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODE5MzMyNDEsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODE5MzMyNDEsImV4cCI6MTU4MjAxOTY0MSwiZGF0YSI6eyJ1c2VyX2lkIjoiMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSCJ9fQ.UmZaqC_PkaBxPpv0MItbzx7txTgzBTi7tOTdwpWz_po",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Jyoti Singh",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "45678345677",
+									"type": "text"
+								},
+								{
+									"key": "house_number",
+									"value": "104-105",
+									"type": "text"
+								},
+								{
+									"key": "street",
+									"value": "Pipliyahana",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Indore",
+									"type": "text"
+								},
+								{
+									"key": "pincode",
+									"value": "452016",
+									"type": "text"
+								},
+								{
+									"key": "dial_code",
+									"value": "+91",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "India",
+									"type": "text"
+								},
+								{
+									"key": "country_code",
+									"value": "IN",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/address/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"address",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "AddressID   Required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Remove Wishlist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODIyNzc3NzcsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODIyNzc3NzcsImV4cCI6MTU4MjM2NDE3NywiZGF0YSI6eyJ1c2VyX2lkIjoiMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSFVLIn19.GC1aLOuF72F859r72pTJPVNz6UjY_JmBV4qWaqw3YMY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "product_id",
+									"value": "22",
+									"description": "required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/wishlist",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add To Cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODM5MjIyNTIsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODM5MjIyNTIsImV4cCI6MTU4NDAwODY1MiwiZGF0YSI6eyJ1c2VyX2lkIjoiMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQkgifX0.4QRbPXyoZGpaSVTAvARWn5HtFhZCIlLpr5FDRrZryYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "62",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "product_quantity",
+									"value": "2",
+									"description": "Required    ",
+									"type": "text"
+								},
+								{
+									"key": "variant",
+									"value": "1,9",
+									"description": "Required  , comma seperated IDS",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/cart",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cart List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODM3NDI1MzAsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4Mzc0MjUzMCwiZXhwIjoxNTgzODI4OTMwLCJkYXRhIjp7InVzZXJfaWQiOiI4IiwidXNlcl90eXBlIjoiYnV5ZXIiLCJkZXZpY2VfaWQiOiJiODMyNDljZi1lYmU0LTIxNjEtN2VkNy0yNWJlY2FiYTZiNWQifX0.OYaRnmQFOqg5wB8Y3qCqAWUBX52LzTosTLCTnZoq6bA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/cart?limit&offset",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"cart"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": null,
+									"description": "100 Default"
+								},
+								{
+									"key": "offset",
+									"value": null,
+									"description": "0 Default"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cart Item And Clear Cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODMyMjA1MjcsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODMyMjA1MjcsImV4cCI6MTU4MzMwNjkyNywiZGF0YSI6eyJ1c2VyX2lkIjoiMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSCJ9fQ.5LazrkZj26d665HsAXm0YwfPtebShW9uW_o3SB7jC7g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "clearAll",
+									"value": "1",
+									"description": "required when clear all cart data and value should be 1",
+									"type": "text"
+								},
+								{
+									"key": "limit",
+									"value": "",
+									"description": "Deafult 100",
+									"type": "text"
+								},
+								{
+									"key": "offset",
+									"value": "",
+									"description": "dafault 0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/cart",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear All Wishlist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODIzNTQyNTgsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODIzNTQyNTgsImV4cCI6MTU4MjQ0MDY1OCwiZGF0YSI6eyJ1c2VyX2lkIjoiMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSCJ9fQ.yh3AASDap-dgaC1NVtxh5hlKAwLeLwlbxytvtsUjS5U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/wishlist",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Increment Decrement Cart Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODMzODczMzgsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODMzODczMzgsImV4cCI6MTU4MzQ3MzczOCwiZGF0YSI6eyJ1c2VyX2lkIjoiMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQkgifX0.56VjM8_TdT4oDpX3FBY_a5wVKlG-N0lK4qKu2p5NyBI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "product_id",
+									"value": "22",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "product_quantity",
+									"value": "1",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "decrease",
+									"description": "Required,  increase,decrease",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/cart/alter/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"cart",
+								"alter",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6",
+									"description": "cartItemId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Featured Product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/product/featured",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"product",
+								"featured"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cart Count",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODMzMjE1MDgsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4MzMyMTUwOCwiZXhwIjoxNTgzNDA3OTA4LCJkYXRhIjp7InVzZXJfaWQiOiI4IiwidXNlcl90eXBlIjoiYnV5ZXIiLCJkZXZpY2VfaWQiOiJERVZJQ0UtSVRGRENCSCJ9fQ.55huE8diIXI5ZluOK27Tmuzz-k5rpPL7_5NdHml00Jg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/cart/count",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"cart",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Wishlist List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI5NzkyMTUsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4Mjk3OTIxNSwiZXhwIjoxNTgzMDY1NjE1LCJkYXRhIjp7InVzZXJfaWQiOiIzNSIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSCJ9fQ.Z1X51j2WG4463tJVf5vBp6jHQKAlS4OgOAGDveiKw2M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/wishlist-list?limit&offset",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"wishlist-list"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": null,
+									"description": "Default 20"
+								},
+								{
+									"key": "offset",
+									"value": null,
+									"description": "Default 0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Card",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODMzODgyMDYsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4MzM4ODIwNiwiZXhwIjoxNTgzNDc0NjA2LCJkYXRhIjp7InVzZXJfaWQiOiI4IiwidXNlcl90eXBlIjoiYnV5ZXIiLCJkZXZpY2VfaWQiOiJiODMyNDljZi1lYmU0LTIxNjEtN2VkNy0yNWJlY2FiYTZiNWQifX0.00c0DHbBL6mGfXZ96VeK1H8KwODWdMV-_ClozEIcxoY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "stripe_card_id",
+									"value": "card_nxerngIJ",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "card_holder_name",
+									"value": "Jyoti singh",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "card_last_4_digits",
+									"value": "4598",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "card_expiry_month",
+									"value": "09",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "card_expiry_year",
+									"value": "2019",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "card_brand_type",
+									"value": "Mastercard",
+									"description": "Required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/card",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Customer On Stripe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODM3NDgzNTgsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODM3NDgzNTgsImV4cCI6MTU4MzgzNDc1OCwiZGF0YSI6eyJ1c2VyX2lkIjoiMyIsInVzZXJfdHlwZSI6InNlbGxlciIsImRldmljZV9pZCI6IkRFVklDRS1JVEZEQ0JIIn19.eIsEWZXbezWxz3jQPl7WSHJdUEVyHgLIb8RnBHorIG8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/create-customer",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"create-customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Card By Website",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODMzMjE1MDgsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4MzMyMTUwOCwiZXhwIjoxNTgzNDA3OTA4LCJkYXRhIjp7InVzZXJfaWQiOiI4IiwidXNlcl90eXBlIjoiYnV5ZXIiLCJkZXZpY2VfaWQiOiJERVZJQ0UtSVRGRENCSCJ9fQ.55huE8diIXI5ZluOK27Tmuzz-k5rpPL7_5NdHml00Jg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sourceId",
+									"value": "",
+									"description": "required,  Token given by stripe when add card",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/add-card",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"add-card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODM3NDI1MzAsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4Mzc0MjUzMCwiZXhwIjoxNTgzODI4OTMwLCJkYXRhIjp7InVzZXJfaWQiOiI4IiwidXNlcl90eXBlIjoiYnV5ZXIiLCJkZXZpY2VfaWQiOiJiODMyNDljZi1lYmU0LTIxNjEtN2VkNy0yNWJlY2FiYTZiNWQifX0.OYaRnmQFOqg5wB8Y3qCqAWUBX52LzTosTLCTnZoq6bA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/card-list",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"card-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Card",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODMzMjE1MDgsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4MzMyMTUwOCwiZXhwIjoxNTgzNDA3OTA4LCJkYXRhIjp7InVzZXJfaWQiOiI4IiwidXNlcl90eXBlIjoiYnV5ZXIiLCJkZXZpY2VfaWQiOiJERVZJQ0UtSVRGRENCSCJ9fQ.55huE8diIXI5ZluOK27Tmuzz-k5rpPL7_5NdHml00Jg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/card-delete/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"card-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "required, cardID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make Card Default",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODM3NDYyODIsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJsb2NhbGhvc3QiLCJuYmYiOjE1ODM3NDYyODIsImV4cCI6MTU4MzgzMjY4MiwiZGF0YSI6eyJ1c2VyX2lkIjoiMiIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQkgifX0.3_rs1IwVkTqQ6JwSLcF58-ahhRdqQvhyy8BMMnbYnQM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/card/default/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"card",
+								"default",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "card_nxervngI",
+									"description": "required , card_id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODM5MzE3OTEsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4MzkzMTc5MSwiZXhwIjoxNTg0MDE4MTkxLCJkYXRhIjp7InVzZXJfaWQiOiI3OCIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiYjgzMjQ5Y2YtZWJlNC0yMTYxLTdlZDctMjViZWNhYmE2YjVkIn19.7dunfX4U_XsiXUCl8oDMlruzhwDrshikFeLMtxQ2LAM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "payment_mode",
+									"value": "2",
+									"description": "Required, 1:COD, 2:Stripe",
+									"type": "text"
+								},
+								{
+									"key": "shipping_address_id",
+									"value": "80",
+									"description": "Required, Shipping address ID",
+									"type": "text"
+								},
+								{
+									"key": "total_amount",
+									"value": "4750.00",
+									"description": "Required, total amount ",
+									"type": "text"
+								},
+								{
+									"key": "subtotal_amount",
+									"value": "4750.00",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "shipping_charges",
+									"value": "00.00",
+									"description": "Required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/payment",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Order List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODM5MzE3OTEsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4MzkzMTc5MSwiZXhwIjoxNTg0MDE4MTkxLCJkYXRhIjp7InVzZXJfaWQiOiI3OCIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiYjgzMjQ5Y2YtZWJlNC0yMTYxLTdlZDctMjViZWNhYmE2YjVkIn19.7dunfX4U_XsiXUCl8oDMlruzhwDrshikFeLMtxQ2LAM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBH",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/my-order",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"my-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buyer Order Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODQ0NTQxMzcsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4NDQ1NDEzNywiZXhwIjoxNTg0NTQwNTM3LCJkYXRhIjp7InVzZXJfaWQiOiI5OCIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSFVLIn19.ICDMtN3LdP2sYogpeDJ7ohqSCIoEsYGOR8HKKIMsNYI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/order/buyer-order-detail/:id",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"order",
+								"buyer-order-detail",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "560",
+									"description": "Required,  OrderID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Rating Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODQ3MDMzMzIsImp0aSI6InF2YXpvbi5vcmciLCJpc3MiOiJkZXYucXZhem9uLmNvbSIsIm5iZiI6MTU4NDcwMzMzMiwiZXhwIjoxNTg0Nzg5NzMyLCJkYXRhIjp7InVzZXJfaWQiOiIzNSIsInVzZXJfdHlwZSI6ImJ1eWVyIiwiZGV2aWNlX2lkIjoiREVWSUNFLUlURkRDQlJKSFVLIn19.h2FGBUTJfqiSqZ1IxcraUk6qLS2wmhU36URb3WtwVxs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "DEVICE-ITFDCBRJHUK",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rating",
+									"value": "4",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "review",
+									"value": "Good support",
+									"type": "text"
+								},
+								{
+									"key": "rating_for",
+									"value": "17",
+									"description": "required,  Seller ID",
+									"type": "text"
+								},
+								{
+									"key": "order_id",
+									"value": "577",
+									"description": "Required ,  Order ID",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{qvazon}}api/v1/user/user-rating",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"user",
+								"user-rating"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Option",
+			"item": [
+				{
+					"name": "Home Page Banner",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"type": "text",
+								"value": "tuytyugch"
+							},
+							{
+								"key": "Device-Type",
+								"type": "text",
+								"value": "3"
+							},
+							{
+								"key": "Device-Timezone",
+								"type": "text",
+								"value": "Asia/Kolkata"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/option/banner",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"option",
+								"banner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deals",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Device-Id",
+								"value": "tuytyugch",
+								"type": "text"
+							},
+							{
+								"key": "Device-Type",
+								"value": "3",
+								"type": "text"
+							},
+							{
+								"key": "Device-Timezone",
+								"value": "Asia/Kolkata",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{qvazon}}api/v1/option/deal",
+							"host": [
+								"{{qvazon}}api"
+							],
+							"path": [
+								"v1",
+								"option",
+								"deal"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

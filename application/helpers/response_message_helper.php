@@ -1,0 +1,147 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+* Response message helper function used in app
+* Contains response messages with their corresponding message code
+* version: 2.0 (24-08-2018)
+*/
+
+/**
+ * Get message from codes
+ * Modified in ver 2.0
+ */
+function get_response_message($msg_code){
+    
+    $message_arr = array(
+        
+        100 => "Invalid API key",
+        101 => "Invalid token",
+        102 => "Invalid Email or Password",
+        103 => "User authentication successfully done",
+        104 => "User not found",
+        105 => "User registration successfully done",
+        106 => "No record found",
+        107 => "Something went wrong. Please try again",  //something went wrong
+        108 => "You are currently not authorised to login",
+        109 => "Invalid request",
+        110 => "Invalid parameter value",
+        111 => "Inactive user",
+        112 => "Invalid Email",
+        113 => "Invalid header value",
+        113 => "Invalid password",
+        114 => "Social registered users are not allow to access forgot password.",
+        115 => "Social ID is required.",
+        116 => "Social type is required.",
+        117 => "Device token is required.",
+        118 => "User type is required.",
+        119 => "You already have an account as seller with this Email, Please try with another Email.",
+
+        120 => "A new password has been sent on your registered Email",
+        121 => "Logged in successfully",
+        122 => "Added successfully",
+        123 => "Updated successfully",
+        124 => "Deleted successfully",
+        125 => "Logged out successfully",
+        126 => "You are not authorised for this action",
+        127 => "This Email address is already exist, Please try again with another Email.",
+        128 => "Your account is already registered with Social Account. Please try logging in using Social account.",
+        129 => "Your account is already registered and is not associated with Social Account. Please try logging in without using Social account.",
+        130 => "Your password has been sent to your Email.",
+        131 => "Business name is required.",
+        132 => "Business name should be between of 5 and 100 characters.",
+        133 => "Business information has been added successfully.",
+        134 => "Business ID should not be empty.",
+        135 => "Business information has been updated successfully.",
+        136 => "Email is required.",
+        137 => "Please input valid price.",
+        138 => "Product has been added successfully.",
+        139 => "Product featured image is required.",
+        140 => "Full Name is required.",
+        141 => "Full name should be between of 2 and 50 characters.",
+        142 => "Profile has been updated successfully.",
+        143 => "Latitude and longitude are required.",
+        144 => "Profile image has been updated successfully.",
+        145 => "You signup as a buyer account, so you are not able to add business information.",
+        146 => "Business information is already added.",
+        147 => "Please select profile picture.",
+        148 => "This account is associated with Social , So you can't be update password.",
+        149 => "Current password and New Password are same.",
+        150 => "Your password has been updated successfully.",
+        151 => "Your password does not matched with old password.",
+        152 => "Gallery Image is required.",
+        153 => "Gallery Image has been uploaded successfully.",
+        154 => "Gallery Image has been deleted successfully.",
+        155 => "Feedback has been send successfully.",
+        156 => "You are not authorized to do anything with this product.",
+        157 => "Product has been deleted successfully.",
+        158 => "ID is required.",
+        159 => "Product not exist.",
+        160 => "Product has been updated successfully.",
+        161 => "Address has been added successfully.",
+        162 => "Address not exist.",
+        163 => "Address has been deleted successfully.",
+        164 => "Address has been updated successfully.",
+        165 => "Social ID already exist.",
+        166 => "Product successfully added in your wishlist",
+        167 => "Product successfully removed from your wishlist",
+        168 => "Product successfully added in your cart",
+        169 => "Quantity is required.",
+        170 => "Card has been successfully saved.",
+        171 => "Card ID is exist.",
+        172 => "Card successfully updated as default.",
+        173 => "Default card will not be delete.",
+        174 => "Card has been deleted successfully.",
+        175 => "Order placed successfully.",
+        178 => "Order rejected successfully.",
+        179 => "Order accepted successfully.",
+        180 => "You already have an account as buyer with this Email, Please try with another Email.",
+        181 => "Rating is submitted successfully.",
+
+        200 => 'OK',
+        201 => 'Created',
+        202 => 'Accepted',
+        203 => 'Non-Authoritative Information',
+        204 => 'No Content',
+        205 => 'Reset Content',
+        206 => 'Partial Content',
+        300 => 'Multiple Choices',
+        301 => 'Moved Permanently',
+        302 => 'Found',
+        303 => 'See Other',
+        304 => 'Not Modified',
+        305 => 'Use Proxy',
+        306 => '(Unused)',
+        307 => 'Temporary Redirect',
+        400 => 'Bad Request',
+        401 => 'Unauthorized',
+        402 => 'Payment Required',
+        403 => 'Forbidden',
+        404 => 'Not Found',
+        405 => 'Method Not Allowed',
+        406 => 'Not Acceptable',
+        407 => 'Proxy Authentication Required',
+        408 => 'Request Timeout',
+        409 => 'Conflict',
+        410 => 'Gone',
+        411 => 'Length Required',
+        412 => 'Precondition Failed',
+        413 => 'Request Entity Too Large',
+        414 => 'Request-URI Too Long',
+        415 => 'Unsupported Media Type',
+        416 => 'Requested Range Not Satisfiable',
+        417 => 'Expectation Failed',
+        500 => 'Internal Server Error',
+        501 => 'Not Implemented',
+        502 => 'Bad Gateway',
+        503 => 'Service Unavailable',
+        504 => 'Gateway Timeout',
+        505 => 'HTTP Version Not Supported',
+        506 => 'Session expired'
+    );
+    
+    $no_msg = '';
+    if(!array_key_exists($msg_code,$message_arr)){
+        return $no_msg; //code does not exist, return empty string
+    }
+    
+    return $message_arr[$msg_code];  //return message corresponding to code
+}
