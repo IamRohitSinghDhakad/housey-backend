@@ -1,2 +1,2 @@
-Project: Qvazon
-qvazon-backend-api
+Project: Housey
+housey-backend-api
