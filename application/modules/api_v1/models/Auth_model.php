@@ -8,7 +8,7 @@ class Auth_model extends MY_Model {
     
     function registration($data,$headerInfo){  
 
-        $res = $this->db->select('email,user_type')->where(array('email'=>$data['email']))->get(USERS);         
+        $res = $this->db->select('email')->where(array('email'=>$data['email']))->get(USERS);         
         if($res->num_rows() == 0){
             $this->db->insert(USERS, $data);
             $last_id = $this->db->insert_id();
@@ -39,25 +39,7 @@ class Auth_model extends MY_Model {
         }
         else{   
 
-            $result = $res->row();
-            if($data['user_type'] == 'seller' && $result->user_type == 'buyer'){
-
-                return array('regType'=>'AE'); //already exist buyer email
-            }
-
-            if($data['user_type'] == 'buyer' && $result->user_type == 'seller'){
-
-                return array('regType'=>'AES'); //already exist seller email
-            }
-
-            if($data['user_type'] == 'seller' && $result->user_type == 'seller'){
-
-                return array('regType'=>'AESE'); //already exist seller email
-            }
-            if($data['user_type'] == 'buyer' && $result->user_type == 'buyer'){
-
-                return array('regType'=>'AEBE'); //already exist buyer email
-            }
+            return array('regType'=>'AE'); //already exist buyer email
         }
 
     } //End Function users Registertion users Register
@@ -65,67 +47,6 @@ class Auth_model extends MY_Model {
     //User social Signup/Login
     function social($data,$headerInfo,$socialData){ 
         
-        // if(!empty($data['email'])){ // Email Not Empty
-
-        //     $userExist = $this->checkUserExist($data["email"],$socialData['social_id'],$socialData['social_type']); //to check user exist in database
-
-        //     if($userExist != FALSE){  //User exist
-
-        //         if($data['user_type'] != $userExist->user_type){
-
-        //             return array('regType'=>'WT'); //Wrong user type
-        //         }
-
-        //         $this->checkSocialExist($userExist->userID,$socialData['social_id'],$socialData['social_type']); //check social data exist in DB
-
-        //         if($userExist->status == 1){ //User active
-                        
-        //             //updating users deviceInfo
-        //             $updateDeviceInfo = $this->updateDeviceInfo($userExist->userID,$data,$headerInfo);
-
-        //             $updateData['last_login_at'] = datetime();
-        //             $updateUserInfo = $this->common_model->updateFields(USERS,$updateData, array('userID' => $userExist->userID));
-
-        //             return array('regType'=>'SL','returnData'=>$this->userInfo(array('userID' => $userExist->userID, 'device_id' => $headerInfo['device-id'])));
-        //             //social login successfully
-                   
-        //         }else{
-        //             return array('regType'=>'IU'); //Inactive User
-        //         }
-        //     }
-        // }
-        
-        // if(empty($data['email'])){ //Email Empty
-
-        //     $data['email'] = NULL;
-
-        //     $userExist = $this->checkUserExist($data["email"],$socialData['social_id'],$socialData['social_type']); //to check user exist in database
-
-        //     if($userExist != FALSE){  //Social User exist 
-
-        //         if($data['user_type'] != $userExist->user_type){
-
-        //             return array('regType'=>'WT'); //Wrong user type
-        //         }
-                
-        //         if($userExist->status == 1){ // User Active
-                        
-        //             //updating users deviceInfo
-        //             $updateDeviceInfo = $this->updateDeviceInfo($userExist->userID,$data,$headerInfo);
-
-        //             $updateData['last_login_at'] = datetime();
-        //             $updateUserInfo = $this->common_model->updateFields(USERS,$updateData, array('userID' => $userExist->userID));
-
-        //             return array('regType'=>'SL','returnData'=>$this->userInfo(array('userID' => $userExist->userID, 'device_id' => $headerInfo['device-id'])));
-        //             //social login successfully
-                   
-        //         }else{
-
-        //             return array('regType'=>'IU'); //Inactive User
-        //         }
-        //     }
-        // }
-
         //Insert New user
         $last_id = $this->common_model->insertData(USERS,$data);
         if(!empty($last_id)){
@@ -181,8 +102,6 @@ class Auth_model extends MY_Model {
         }
         if($device_exist === TRUE) { //Update device info
 
-            //$update['device_type'] = $headerInfo['device-type'];
-            //$update['device_id'] = $headerInfo['device-id'];
             $update['device_token'] = $data['device_token'];
             $update['device_timezone'] = $headerInfo['device-timezone'];
             $update['updated_at'] = datetime();
@@ -214,8 +133,8 @@ class Auth_model extends MY_Model {
     //get user info
     function userInfo($where){
 
-        $this->db->select('u.userID, u.full_name, u.email, u.password, u.user_type, u.status, u.avatar, u.signup_from, social_account.social_type, social_account.social_id ,u.stripe_customer_id, u.profile_timezone,u.profile_address,u.profile_country_code
-            , u.updated_at, u.created_at, user_device.device_type, user_device.device_id, user_device.device_token, user_device.device_timezone, u.push_alert_status, u.is_verified as is_seller_verified');
+        $this->db->select('u.userID, u.full_name, u.email, u.password, u.status, u.avatar, u.signup_from, social_account.social_type, social_account.social_id , u.profile_timezone
+            , u.updated_at, u.created_at, user_device.device_type, user_device.device_id, user_device.device_token, user_device.device_timezone, u.push_alert_status');
         $this->db->from(USERS.' as u');
         $this->db->join(USER_DEVICES.' as user_device',' user_device.user_id = u.userID','left');
         $this->db->join(SOCIAL_ACCOUNT.' as social_account',' social_account.user_id = u.userID','left');
@@ -256,22 +175,6 @@ class Auth_model extends MY_Model {
             $this->output_db_error();
         }
 
-        $result = $query->row();
-        return $result;
-    }
-
-    //Get seller type user business information
-    function seller_buisness_info($userID){
-
-        $this->db->select('seller_biz_info.businessInfoID, seller_biz_info.name as business_name, seller_biz_info.license , seller_biz_info.address , seller_biz_info.latitude , seller_biz_info.longitude');
-
-        $this->db->from(SELLER_BUSINESS_INFO.' as seller_biz_info');
-        $this->db->join(USERS.' as user',' seller_biz_info.user_id = user.userID');
-        $this->db->where(array('user_id' => $userID));
-        $query = $this->db->get();
-        if(!$query){
-            $this->output_db_error();
-        }
         $result = $query->row();
         return $result;
     }
@@ -327,7 +230,6 @@ class Auth_model extends MY_Model {
         }
     }
 
-
    function get_device_info($table, $where){ 
         $this->db->select('device_id');
         $this->db->from($table);
@@ -341,4 +243,3 @@ class Auth_model extends MY_Model {
     }
 
 }//End Class
-?>

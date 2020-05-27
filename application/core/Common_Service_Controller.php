@@ -61,7 +61,6 @@ class Common_Service_Controller extends RestController{
         try {
             $decoded =  JWT::decode($authToken, getenv('JWT_SECRET_KEY'), array('HS256'));
             $user_id = $decoded->data->user_id;
-            $user_type = $decoded->data->user_type;
             $device_id = $decoded->data->device_id;
              
         }catch ( \Firebase\JWT\ExpiredException $e ) {

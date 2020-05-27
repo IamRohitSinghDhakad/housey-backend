@@ -30,7 +30,6 @@ class General_model extends MY_Model {
             'exp' => $expire, // Expire time
             'data' => [ // Data related to the signer user
                 'user_id' => $user_id,
-                'user_type' => $user_entity['user_type'], // Can be any entity related to user(user type, email, device ID etc)
                 'device_id' => $user_entity['device_id'], // Can be any entity related to user(user type, email, device ID etc)
             ]
         ];
@@ -45,7 +44,7 @@ class General_model extends MY_Model {
      *  @return  user detail .     
     */
     function getUserDetail($userId,$deviceId) {
-        $this->db->select('users.userID,users.full_name,users.email,users.password,users.avatar,users.profile_timezone,users.profile_address,users.profile_country_code,users.status,users.stripe_customer_id,users.created_at as userCreate_date,device.device_type,device.device_id,device.device_token,device.device_timezone,users.push_alert_status');
+        $this->db->select('users.userID,users.full_name,users.email,users.password,users.avatar,users.profile_timezone,users.status,users.created_at as userCreate_date,device.device_type,device.device_id,device.device_token,device.device_timezone,users.push_alert_status');
         $this->db->from(USERS.' as users');
         $this->db->join(USER_DEVICES.' as device', 'device.user_id = users.userID');
         $this->db->where(array('users.userID' => $userId, 'device.device_id' => $deviceId));

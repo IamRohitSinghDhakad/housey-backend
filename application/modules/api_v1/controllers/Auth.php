@@ -7,141 +7,15 @@ class Auth extends Common_Service_Controller {
         $this->load->model('auth_model');
 	}
 
-    //Check Social Signup
-    function check_social_signup_put(){
-
-        $headerInfo = $this->request_headers; //Get header Info
-
-        if(empty($this->put('social_id'))){ 
-            $this->error_response(get_response_message(115)); //error reponse
-        }
-
-        if(empty($this->put('user_type'))){  //buyer, seller
-            $this->error_response(get_response_message(118)); //error reponse
-        }
-
-        if(empty($this->put('social_type'))){  //0:None, 1:Google, 2:Facebook, 3:Twitter, 4:GitHub
-            $this->error_response(get_response_message(116)); //error reponse
-        }
-
-        if(empty($this->put('device_token'))){ 
-            $this->error_response(get_response_message(117)); //error reponse
-        }
-
-        $social_id = sanitize_input_text($this->put('social_id'));
-        $social_type = $this->put('social_type');
-        $data['device_token'] = sanitize_input_text($this->put('device_token'));
-
-
-        $email = !empty($this->put('email')) ? sanitize_input_text($this->put('email')) : NULL;
-        //If email is not empty
-        if(!empty($this->put('email'))){
-
-            $userExist = $this->auth_model->checkUserExist($email,$social_id,$social_type); //Check user is exist in DB
-
-            if($userExist !== FALSE){  
-
-                 if($this->put('user_type') != $userExist->user_type){
-
-                    if($this->put('user_type') == 'buyer' && $userExist->user_type == 'seller'){
-
-                        $this->error_response(get_response_message(119)); //error reponse
-                    }
-
-                    if($this->put('user_type') == 'seller' && $userExist->user_type == 'buyer'){
-
-                        $this->error_response(get_response_message(180)); //error reponse
-                    }
-
-                }
-
-                if($userExist->status == 0){ // User Inactive
-                    
-                   $this->error_response(get_response_message(111),ACCOUNT_INACTIVE,400,['user_status' => '0']); //error reponse
-                }
-
-                $this->auth_model->checkSocialExist($userExist->userID,$social_id,$social_type); //check social data exist in DB
-
-                $this->auth_model->updateDeviceInfo($userExist->userID,$data,$headerInfo); //Update Device Info
-
-                //Update user last login field
-                $updateUserData['last_login_at'] = datetime();
-                $this->common_model->updateFields(USERS,$updateUserData, array('userID' => $userExist->userID));
-
-                $userDetail = $this->auth_model->userInfo(array('userID'=>$userExist->userID, 'device_id' => $headerInfo['device-id'])); //Get User Info
-
-                $businessInfo = $this->auth_model->seller_buisness_info($userExist->userID); //Get Business Info
-
-                //generate  authtoken
-                $auth_token = $this->general_model->generateToken($userDetail->userID,array('user_type'=>$userDetail->user_type,'device_id'=>$headerInfo['device-id']));
-
-                $userDetail->authtoken = $auth_token;
-
-                $this->success_response(get_response_message(121),['user_detail' => $userDetail,'business_info' => (object)$businessInfo, 'social_status' => 1]); // 1: Registered already or Login, success response 
-            }
-
-            $this->success_response(get_response_message(104),['user_detail' =>(object)[], 'business_info' => (object)[], 'social_status' => 0]); // 0: Not found, success response
-        }
-
-        if(empty($this->put('email'))){ //If email is empty then check social id in DB
-
-            $userExist = $this->auth_model->checkUserExist($email,$social_id,$social_type); //Check user is exist in DB
-
-            if($userExist !== FALSE){ 
-
-                if($this->put('user_type') != $userExist->user_type){
-
-                    if($this->put('user_type') == 'buyer' && $userExist->user_type == 'seller'){
-
-                        $this->error_response(get_response_message(119)); //error reponse
-                    }
-
-                    if($this->put('user_type') == 'seller' && $userExist->user_type == 'buyer'){
-
-                        $this->error_response(get_response_message(180)); //error reponse
-                    }
-                }
-
-                if($userExist->status == 0){ // User Inactive
-
-                   $this->error_response(get_response_message(111),ACCOUNT_INACTIVE,400,['user_status' => '0']); //error reponse
-                }
-
-                $data['device_token'] = sanitize_input_text($this->put('device_token'));
-
-                $this->auth_model->updateDeviceInfo($userExist->userID,$data,$headerInfo); //Update Device Info
-
-                //Update user last login field
-                $updateUserData['last_login_at'] = datetime();
-                $this->common_model->updateFields(USERS,$updateUserData, array('userID' => $userExist->userID));
-
-                $userDetail = $this->auth_model->userInfo(array('userID'=>$userExist->userID, 'device_id' => $headerInfo['device-id'])); //Get User Info
-
-                $businessInfo = $this->auth_model->seller_buisness_info($userExist->userID); //Get Business Info
-
-                //generate  authtoken
-                $auth_token = $this->general_model->generateToken($userDetail->userID,array('user_type'=>$userDetail->user_type,'device_id'=>$headerInfo['device-id']));
-
-                $userDetail->authtoken = $auth_token;
-
-                $this->success_response(get_response_message(121),['user_detail' => $userDetail,'business_info' => (object)$businessInfo, 'social_status' => 1]); // 1: Registered already or Login, success response 
-            }
-
-            $this->success_response(get_response_message(104),['user_detail' =>(object)[], 'business_info' => (object)[], 'social_status' => 0]); // 0: Not found, success response
-        }
-    }
-
     //Signup API
 	function signup_post(){
 
         $headerInfo = $this->request_headers; //Get header Info
 
 		// field name, error message, validation rules
-        $this->form_validation->set_rules('full_name', 'Full Name','trim|required|min_length[2]|max_length[50]');
+        $this->form_validation->set_rules('full_name', 'Full Name','trim|min_length[2]|max_length[50]');
 
 		$this->form_validation->set_rules('email', 'Email Address','trim|required|min_length[2]|max_length[255]|valid_email');
-
-        $this->form_validation->set_rules('user_type', 'User Type','trim|required'); //Seller, Buyer
 
     	$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]'); 
 
@@ -156,13 +30,12 @@ class Auth extends Common_Service_Controller {
         $data['full_name']    = sanitize_input_text($this->input->post('full_name'));
 		$data['email']        = sanitize_input_text($this->input->post('email'));			
 		$data['password']     = !$this->post('social_id') ? password_hash($this->post('password'), PASSWORD_DEFAULT) : '';
-        $data['user_type']    = $this->post('user_type');
         $data['signup_from'] = $this->post('signup_from')? $this->post('signup_from'): ''; //1=IOS,2=Android,3=Website
         $data['profile_timezone'] = $this->post('profile_timezone')? $this->post('profile_timezone'): '';
         $data['updated_at']   = datetime();
         $data['created_at']   = datetime();
 
-        $headerInfo['device_token'] = $this->post('device_token')? sanitize_input_text($this->post('device_token')): NULL;
+        $headerInfo['device_token'] = $this->post('device_token')? sanitize_input_text($this->post('device_token')): '';
 		$result = $this->auth_model->registration($data,$headerInfo);
 
 		if(is_array($result)){ 
@@ -170,7 +43,7 @@ class Auth extends Common_Service_Controller {
             if(!empty($result['returnData'])){  //Insert data in user device table
 
                 //generate  authtoken
-                $auth_token = $this->general_model->generateToken($result['returnData']->userID,array('user_type'=>$result['returnData']->user_type,'device_id'=>$headerInfo['device-id']));
+                $auth_token = $this->general_model->generateToken($result['returnData']->userID,array('device_id'=>$headerInfo['device-id']));
                 $result['returnData']->authtoken = $auth_token;
 
                 $businessInfo = $this->auth_model->seller_buisness_info($result['returnData']->userID); //Get Business Info
@@ -183,18 +56,6 @@ class Auth extends Common_Service_Controller {
                 break;
 
                 case "AE":
-                    $this->error_response(get_response_message(180),EMAIL_EXIST,400,['user_detail' => (object)[]]); //error reponse
-                break;
-
-                case "AES":
-                    $this->error_response(get_response_message(119),EMAIL_EXIST,400,['user_detail' => (object)[]]); //error reponse
-                break;
-
-                case "AESE":
-                    $this->error_response(get_response_message(119),EMAIL_EXIST,400,['user_detail' => (object)[]]); //error reponse
-                break;
-
-                case "AEBE":
                     $this->error_response(get_response_message(180),EMAIL_EXIST,400,['user_detail' => (object)[]]); //error reponse
                 break;
 
@@ -271,7 +132,7 @@ class Auth extends Common_Service_Controller {
                 $businessInfo = $this->auth_model->seller_buisness_info($emailExist->userID); //Get Business Info
 
                 //generate  authtoken
-                $auth_token = $this->general_model->generateToken($userDetail->userID,array('user_type'=>$userDetail->user_type,'device_id'=>$headerInfo['device-id']));
+                $auth_token = $this->general_model->generateToken($userDetail->userID,array('device_id'=>$headerInfo['device-id']));
 
                 $userDetail->authtoken = $auth_token;
 
@@ -356,7 +217,7 @@ class Auth extends Common_Service_Controller {
 
             if(!empty($result['returnData'])){ 
                 //generate  authtoken
-                $auth_token = $this->general_model->generateToken($result['returnData']->userID,array('user_type'=>$result['returnData']->user_type,'device_id'=>$headerInfo['device-id']));
+                $auth_token = $this->general_model->generateToken($result['returnData']->userID,array('device_id'=>$headerInfo['device-id']));
 
                 $result['returnData']->authtoken = $auth_token;
                 
@@ -519,51 +380,6 @@ class Auth extends Common_Service_Controller {
         }
         //set msg for success
        $this->success_response(get_response_message(150)); 
-    }
-
-    function content_get(){
-
-        //$this->check_service_auth();
-        
-        if($_SERVER['CI_ENV'] == 'testing'){
-            $data['term_and_condition'] = 'http://localhost:4200/termandcondition';
-            $data['policy'] = 'http://localhost:4200/privacypolicy';
-
-        }else if($_SERVER['CI_ENV'] == 'development'){
-           $data['term_and_condition'] = 'https://dev.qvazon.com/termandcondition';
-           $data['policy'] = 'https://dev.qvazon.com/privacypolicy';
-        }
-        else if($_SERVER['CI_ENV'] == 'production'){
-            $data['term_and_condition'] = 'https://www.qvazon.com/termandcondition';
-            $data['policy'] = 'https://www.qvazon.com/privacypolicy';
-        }
-
-        $where = array('option_name' => 'term_content');
-        $termAndConditionData = $this->common_model->getsingle(CONTENT_OPTIONS, $where, 'option_value');
-
-        $policy = $this->common_model->getsingle(CONTENT_OPTIONS, array('option_name' =>'term_policy'), 'option_value');
-
-        
-        if(empty($termAndConditionData->option_value) && empty($policy->option_value)){
-
-            $response = array('status'=>FAIL,'message'=> get_response_message(106), 'content' => '','content_url'=>'');
-            $this->response($response);
-        }
-
-        if(!empty($termAndConditionData))
-            $content['termAndCondition'] = $termAndConditionData->option_value;
-
-        if(!empty($policy))
-            $content['policy'] = $policy->option_value; 
-
-        if(!empty($content && $data)){
-            $response = array('status'=> SUCCESS,'message'=>get_response_message(200), 'content' => $content,'content_url'=>$data);
-            $this->response($response);
-        }else{
-            $response = array('status'=>FAIL,'message'=> get_response_message(106), 'content' => '','content_url'=>'');
-            $this->response($response);
-        }
-
     }
 
 } //End Class
