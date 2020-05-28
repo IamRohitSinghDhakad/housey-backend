@@ -133,7 +133,7 @@ class Auth_model extends MY_Model {
     //get user info
     function userInfo($where){
 
-        $this->db->select('u.userID, u.full_name, u.email, u.password, u.status, u.avatar, u.signup_from, social_account.social_type, social_account.social_id , u.profile_timezone
+        $this->db->select('u.userID, u.full_name, u.email, u.password, u.status, u.avatar, u.signup_from, COALESCE(social_account.social_type, "") as social_type, COALESCE(social_account.social_id, "") as social_id , u.profile_timezone
             , u.updated_at, u.created_at, user_device.device_type, user_device.device_id, user_device.device_token, user_device.device_timezone, u.push_alert_status');
         $this->db->from(USERS.' as u');
         $this->db->join(USER_DEVICES.' as user_device',' user_device.user_id = u.userID','left');
@@ -160,7 +160,7 @@ class Auth_model extends MY_Model {
                 $result->avatar = getenv('AWS_CDN_USER_PLACEHOLDER_IMG'); //return default image if image is empty
             }
         }
-        $result->user_address = $this->default_address($result->userID);
+        //$result->user_address = $this->default_address($result->userID);
         return $result;
     } //End Function usersInfo
 

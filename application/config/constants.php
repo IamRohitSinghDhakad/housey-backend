@@ -100,6 +100,7 @@ define('ADMIN_USER_SESS_KEY', 'app_admin_user_sess');
 define('ADMIN', 'admin');
 define('USERS', 'users');
 define('USER_DEVICES', 'user_devices');
+define('SOCIAL_ACCOUNT', 'social_accounts');
 
 
 //uploads path

@@ -93,7 +93,7 @@ function get_response_message($msg_code){
         175 => "Order placed successfully.",
         178 => "Order rejected successfully.",
         179 => "Order accepted successfully.",
-        180 => "You already have an account as buyer with this Email, Please try with another Email.",
+        180 => "You already have an account with this Email, Please try with another Email.",
         181 => "Rating is submitted successfully.",
 
         200 => 'OK',

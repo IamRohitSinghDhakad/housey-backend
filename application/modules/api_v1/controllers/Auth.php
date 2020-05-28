@@ -13,7 +13,7 @@ class Auth extends Common_Service_Controller {
         $headerInfo = $this->request_headers; //Get header Info
 
 		// field name, error message, validation rules
-        $this->form_validation->set_rules('full_name', 'Full Name','trim|min_length[2]|max_length[50]');
+        $this->form_validation->set_rules('phone_number', 'Phone Number','trim|min_length[10]|max_length[10]|numeric');
 
 		$this->form_validation->set_rules('email', 'Email Address','trim|required|min_length[2]|max_length[255]|valid_email');
 
@@ -27,7 +27,7 @@ class Auth extends Common_Service_Controller {
             $this->error_response(strip_tags(validation_errors())); //error reponse
 		}
 
-        $data['full_name']    = sanitize_input_text($this->input->post('full_name'));
+        $data['phone_number']    = sanitize_input_text($this->input->post('phone_number'));
 		$data['email']        = sanitize_input_text($this->input->post('email'));			
 		$data['password']     = !$this->post('social_id') ? password_hash($this->post('password'), PASSWORD_DEFAULT) : '';
         $data['signup_from'] = $this->post('signup_from')? $this->post('signup_from'): ''; //1=IOS,2=Android,3=Website
@@ -45,14 +45,12 @@ class Auth extends Common_Service_Controller {
                 //generate  authtoken
                 $auth_token = $this->general_model->generateToken($result['returnData']->userID,array('device_id'=>$headerInfo['device-id']));
                 $result['returnData']->authtoken = $auth_token;
-
-                $businessInfo = $this->auth_model->seller_buisness_info($result['returnData']->userID); //Get Business Info
             }
 
 
             switch ($result['regType']){
                 case "NR":
-                    $this->success_response(get_response_message(105),['user_detail' => $result['returnData'],'business_info' => (object)$businessInfo]); //success response
+                    $this->success_response(get_response_message(105),['user_detail' => $result['returnData']]); //success response
                 break;
 
                 case "AE":
@@ -129,14 +127,13 @@ class Auth extends Common_Service_Controller {
                 $updateUserInfo = $this->common_model->updateFields(USERS,$updateUserData, array('userID' => $emailExist->userID));
 
                 $userDetail = $this->auth_model->userInfo(array('userID'=>$emailExist->userID, 'device_id' => $headerInfo['device-id'])); //Get User Info
-                $businessInfo = $this->auth_model->seller_buisness_info($emailExist->userID); //Get Business Info
 
                 //generate  authtoken
                 $auth_token = $this->general_model->generateToken($userDetail->userID,array('device_id'=>$headerInfo['device-id']));
 
                 $userDetail->authtoken = $auth_token;
 
-                $this->success_response(get_response_message(121),['user_detail' => $userDetail,'business_info' => (object)$businessInfo]); //success response
+                $this->success_response(get_response_message(121),['user_detail' => $userDetail]); //success response
             }
             else{ //Not verified password
 
@@ -155,7 +152,6 @@ class Auth extends Common_Service_Controller {
 
         $this->form_validation->set_rules('email', 'Email Address','trim|min_length[2]|max_length[255]|required|valid_email');
 
-        $this->form_validation->set_rules('user_type', 'User Type','trim|required'); //Seller, Buyer
         $this->form_validation->set_rules('social_id', 'Social ID','trim|required'); //Social ID
 
         $this->form_validation->set_rules('social_type', 'Social Type','trim|required'); //0:None, 1:Google, 2:Facebook, 3:Twitter, 4:GitHub
@@ -220,8 +216,6 @@ class Auth extends Common_Service_Controller {
                 $auth_token = $this->general_model->generateToken($result['returnData']->userID,array('device_id'=>$headerInfo['device-id']));
 
                 $result['returnData']->authtoken = $auth_token;
-                
-                $businessInfo = $this->auth_model->seller_buisness_info($result['returnData']->userID); //Get Business Info
             }
 
 
@@ -231,7 +225,7 @@ class Auth extends Common_Service_Controller {
                 // break;
 
                 case "SR":
-                    $this->success_response(get_response_message(105),['user_detail' => $result['returnData'],'business_info' => (object)$businessInfo,'social_status' => 2]); //2: Register, success response
+                    $this->success_response(get_response_message(105),['user_detail' => $result['returnData'],'social_status' => 2]); //2: Register, success response
                 break;
 
                 // case "IU":
